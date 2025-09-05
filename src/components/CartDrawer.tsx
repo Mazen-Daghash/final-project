@@ -2,6 +2,7 @@ import { X } from 'lucide-react';
 import { useCart } from '../lib/cart/cart-context';
 import { cn } from '../lib/utils';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type CartDrawerProps = {
   isOpen: boolean;
@@ -10,10 +11,16 @@ type CartDrawerProps = {
 
 export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   const { items, removeFromCart, updateQuantity, totalPrice } = useCart();
+  const navigate = useNavigate();
 
   const handleQuantityChange = (id: number, newQuantity: number) => {
     if (newQuantity < 1) return;
     updateQuantity(id, newQuantity);
+  };
+
+  const handleCheckout = () => {
+    onClose(); // Close the cart drawer
+    navigate('/checkout'); // Navigate to the checkout page
   };
 
   // Close drawer when clicking outside
@@ -142,10 +149,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
           <button
             className="w-full bg-primary text-white py-2 rounded hover:bg-primary/90 transition-colors disabled:opacity-50"
             disabled={items.length === 0}
-            onClick={() => {
-              // Handle checkout
-              console.log('Proceed to checkout');
-            }}
+            onClick={handleCheckout}
           >
             Proceed to Checkout
           </button>

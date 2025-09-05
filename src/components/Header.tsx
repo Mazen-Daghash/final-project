@@ -8,7 +8,7 @@ import { CartDrawer } from './CartDrawer';
 
 export default function Header() {
   const { user, isAuthenticated, logout } = useAuth();
-  const { items } = useCart();
+  const { items, totalItems } = useCart();
   const location = useLocation();
   const [isAccountOpen, setIsAccountOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -17,8 +17,6 @@ export default function Header() {
   useEffect(() => {
     setIsCartOpen(false);
   }, [location.pathname]);
-
-  const totalCartItems = items.reduce((total, item) => total + (item.quantity || 1), 0);
 
   const toggleCart = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
@@ -129,9 +127,9 @@ export default function Header() {
                   aria-expanded={isCartOpen}
                 >
                   <ShoppingCart className="h-6 w-6" />
-                  {totalCartItems > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-yellow-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                      {totalCartItems}
+                  {totalItems > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-yellow-500 text-white text-xs font-medium rounded-full h-5 w-5 flex items-center justify-center">
+                      {totalItems > 9 ? '9+' : totalItems}
                     </span>
                   )}
                 </button>

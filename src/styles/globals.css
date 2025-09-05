@@ -119,7 +119,35 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer base {
+  /* Add pointer cursor to all interactive elements */
+  button,
+  [type='button'],
+  [type='reset'],
+  [type='submit'],
+  a,
+  [role='button'],
+  [role='tab'],
+  [role='menuitem'],
+  [role='option'],
+  [role='switch'],
+  [role='checkbox'],
+  [role='radio'],
+  [role='slider'],
+  [tabindex]:not([tabindex='-1']) {
+    @apply cursor-pointer;
+  }
+
+  /* For disabled elements */
+  [aria-disabled='true'],
+  [disabled] {
+    @apply cursor-not-allowed;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }

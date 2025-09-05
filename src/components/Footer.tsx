@@ -113,8 +113,6 @@ export default function Footer() {
                 <div className="bg-blue-600 text-white px-3 py-1 rounded text-xs font-semibold">PayPal</div>
                 <div className="bg-blue-900 text-white px-3 py-1 rounded text-xs font-semibold">VISA</div>
                 <div className="bg-orange-500 text-white px-3 py-1 rounded text-xs font-semibold">DISCOVER</div>
-                <div className="bg-red-600 text-white px-3 py-1 rounded text-xs font-semibold">⭕</div>
-                <div className="bg-blue-700 text-white px-3 py-1 rounded text-xs font-semibold">AMEX</div>
               </div>
             </div>
           </div>

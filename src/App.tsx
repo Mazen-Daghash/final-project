@@ -5,7 +5,8 @@ import { CartProvider } from './lib/cart/cart-context';
 import Layout from './components/Layout';
 import { LoginPage } from './components/login';
 import { RegisterPage } from './components/Register';
-import { CartPage } from './components/CartPage'; // We'll create this next
+import { CartPage } from './components/CartPage'; 
+import CheckoutPage from './components/CheckoutPage';
 import ProductsPage from './components/ProductsPage';
 import HeroSection from './components/HeroSection';
 import BeardOilSection from './components/BeardOilSection';
@@ -58,7 +59,7 @@ function AppContent() {
         path="/"
         element={
           <ProtectedRoute>
-            <Layout>
+            <Layout showSections={false}>
               <HeroSection />
               <BeardOilSection />
               <BeardGrowthSection />
@@ -79,6 +80,16 @@ function AppContent() {
           <ProtectedRoute>
             <Layout>
               <CartPage />
+            </Layout>
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/checkout" 
+        element={
+          <ProtectedRoute>
+            <Layout>
+              <CheckoutPage />
             </Layout>
           </ProtectedRoute>
         } 

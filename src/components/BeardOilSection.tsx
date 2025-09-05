@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export default function BeardOilSection() {
+  const navigate = useNavigate();
+
   return (
     <section className="bg-white py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,7 +22,13 @@ export default function BeardOilSection() {
             </div>
             
             {/* Custom Animated Button */}
-            <button className="view-more-btn relative overflow-hidden border-2 border-black bg-white text-black px-8 py-3 rounded-lg transition-colors duration-300 hover:text-black">
+            <button 
+              onClick={() => {
+                window.scrollTo(0, 0);
+                navigate('/products');
+              }}
+              className="view-more-btn relative overflow-hidden border-2 border-black bg-white text-black px-8 py-3 rounded-lg transition-colors duration-300 hover:text-black"
+            >
               <span className="relative z-10">VIEW MORE</span>
               <div className="absolute inset-0 bg-yellow-400 transform -translate-x-full transition-transform duration-500 ease-in-out"></div>
             </button>

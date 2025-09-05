@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -28,6 +29,7 @@ const slides = [
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slide = slides[currentSlide];
+  const navigate = useNavigate();
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -60,6 +62,10 @@ export default function HeroSection() {
       </div>
       
       <Button 
+        onClick={() => {
+          window.scrollTo(0, 0);
+          navigate('/products');
+        }}
         className="bg-amber-400 hover:bg-amber-500 text-black font-medium px-8 py-3 rounded-lg transition-colors"
       >
         SHOP NOW
