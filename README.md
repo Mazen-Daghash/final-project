@@ -36,8 +36,8 @@
    ```
 
 3. **Open in browser**
-   - Frontend: http://localhost:5173
-   - Backend API: http://localhost:3000
+ http://localhost:3000
+   
 
 ### Environment Setup (Optional)
 Create a `.env` file in the root with:
