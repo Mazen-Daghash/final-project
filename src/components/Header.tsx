@@ -38,22 +38,29 @@ export default function Header() {
 
             {/* Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <div className="flex items-center space-x-1">
-                <span className="text-foreground cursor-pointer hover:text-primary transition-colors">Home</span>
-                <ChevronDown className="w-4 h-4 text-muted-foreground" />
-              </div>
-              <div className="flex items-center space-x-1">
-                <span className="text-foreground cursor-pointer hover:text-primary transition-colors">About Us</span>
-                <ChevronDown className="w-4 h-4 text-muted-foreground" />
-              </div>
+              <NavLink 
+                to="/" 
+                className={({ isActive }) => `flex items-center space-x-1 ${isActive ? 'text-primary' : 'text-foreground hover:text-primary'} transition-colors`}
+              >
+                <span>Home</span>
+              </NavLink>
               <NavLink 
                 to="/products" 
-                className={({ isActive }) => 
-                  `flex items-center space-x-1 ${isActive ? 'text-primary' : 'text-foreground hover:text-primary'} transition-colors`
-                }
+                className={({ isActive }) => `flex items-center space-x-1 ${isActive ? 'text-primary' : 'text-foreground hover:text-primary'} transition-colors`}
               >
                 <span>Products</span>
-                <ChevronDown className="w-4 h-4 text-muted-foreground" />
+              </NavLink>
+              <NavLink 
+                to="/about" 
+                className={({ isActive }) => `flex items-center space-x-1 ${isActive ? 'text-primary' : 'text-foreground hover:text-primary'} transition-colors`}
+              >
+                <span>About Us</span>
+              </NavLink>
+              <NavLink 
+                to="/contact" 
+                className={({ isActive }) => `flex items-center space-x-1 ${isActive ? 'text-primary' : 'text-foreground hover:text-primary'} transition-colors`}
+              >
+                <span>Contact</span>
               </NavLink>
             </nav>
 
@@ -127,8 +134,8 @@ export default function Header() {
                   aria-expanded={isCartOpen}
                 >
                   <ShoppingCart className="h-6 w-6" />
-                  {totalItems > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-yellow-500 text-white text-xs font-medium rounded-full h-5 w-5 flex items-center justify-center">
+                  {totalItems >= 0 && (
+                    <span className="absolute -top-1 -right-1 bg-yellow-500 text-black text-xs font-medium rounded-full h-5 w-5 flex items-center justify-center">
                       {totalItems > 9 ? '9+' : totalItems}
                     </span>
                   )}

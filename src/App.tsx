@@ -18,6 +18,8 @@ import TestimonialsSection from './components/TestimonialsSection';
 import NewsletterSection from './components/NewsletterSection';
 import BrandsSection from './components/BrandsSection';
 import FeaturesSection from './components/FeaturesSection';
+import AboutPage from './components/AboutPage';
+import ContactPage from './components/Contactpage';
 import { useEffect } from 'react';
 
 function App() {
@@ -100,6 +102,26 @@ function AppContent() {
           <ProtectedRoute>
             <Layout>
               <ProductsPage />
+            </Layout>
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/about" 
+        element={
+          <ProtectedRoute>
+            <Layout>
+              <AboutPage />
+            </Layout>
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/contact" 
+        element={
+          <ProtectedRoute>
+            <Layout>
+              <ContactPage />
             </Layout>
           </ProtectedRoute>
         } 
