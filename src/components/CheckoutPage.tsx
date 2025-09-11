@@ -138,8 +138,11 @@ export default function CheckoutPage() {
         description: 'Thank you for your purchase. Your order has been received.'
       });
       
-      // Redirect to home or orders page
-      navigate('/');
+      // Scroll to top before navigation
+      window.scrollTo({ top: 0 });
+      
+      // Redirect to home page
+      navigate('/', { replace: true });
       
     } catch (error) {
       toast.error('Failed to place order', {
